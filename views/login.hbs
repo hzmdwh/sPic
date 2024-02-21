@@ -1,0 +1,38 @@
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8' />
+  <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+  <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+  <script src='/js/lib/tailwind.min.js'></script>
+  <script type='importmap'>
+      { 
+        "imports": { 
+          "vue": "/js/vue/vue3.esm-browser.min.js",
+          "@vicons/ionicons5/": "/js/@vicons/ionicons5/es/",
+          "naive": "/js/vue/naive.min.js",
+          "axiosX": "/js/utils/axiosX.js"
+        } 
+      }
+    </script>
+  <title>登录</title>
+</head>
+
+<body>
+  <input type="hidden" id="nodeEnv" value="{{nodeEnv}}">
+  <input type="hidden" id="headerLoginToken" value="{{headerLoginToken}}">
+  <div id='app'></div>
+  <script src="/js/lib/authorization/crypto-js.min.js"></script>
+  <script src="/js/lib/qs.js"></script>
+  <script type="module">
+    window.__NEST_DATA__ = {
+      nodeEnv: "{{ nodeEnv }}",
+      headerLoginToken: "{{ headerLoginToken }}",
+    };
+    import { createApp } from 'vue';
+    import App from '/views/login/login.js';
+    createApp(App).mount('#app');
+  </script>
+</body>
+
+</html>
