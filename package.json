@@ -1,18 +1,18 @@
 {
-  "name": "weixin_scan_login",
+  "name": "sPic",
   "version": "0.0.2",
   "description": "",
   "author": {
     "name": "singcl",
     "email": "imbabyer@gmail.com",
-    "url": "https://github.com/singcl"
+    "url": "https://github.com/hzmdwh"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/singcl/weixin_scan_login.git"
+    "url": "https://github.com/hzmdwh/sPic"
   },
   "bugs": {
-    "url": "https://github.com/singcl/weixin_scan_login/issues"
+    "url": "https://github.com/hzmdwh/sPic/issues"
   },
   "homepage": "",
   "private": true,
