@@ -33,7 +33,7 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "pm2:prod": "nest build && cross-env NODE_ENV=production CONFIG_ENV=prod pm2 start pm2.yaml",
+    "pm2:prod": "nest build && cross-env NODE_ENV=production pm2 start pm2.yaml",
     "pm2:restart": "pm2 restart sPic",
     "pm2:reload": "pm2 reload sPic",
     "pm2:stop": "pm2 stop sPic",
