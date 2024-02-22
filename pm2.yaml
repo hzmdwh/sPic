@@ -1,0 +1,6 @@
+apps:
+  - script: ./dist/src/main.js
+    name: sPic
+    watch: true
+    instances: 1
+    exec_mode: cluster
