@@ -3,6 +3,7 @@ import {
   Inject,
   CACHE_MANAGER,
   GoneException,
+  Logger,
 } from '@nestjs/common';
 import { ConfigType /* ConfigService */ } from '@nestjs/config';
 import type { Response as ExpressResponse } from 'express';
@@ -23,6 +24,7 @@ import { config } from '../../common/config';
 
 @Injectable()
 export class MpService {
+  private readonly logger: Logger = new Logger(MpService.name);
   constructor(
     // private readonly allConfig: ConfigService,
     @Inject(CACHE_MANAGER) private cacheManager: Cache,
@@ -44,11 +46,14 @@ export class MpService {
   // 验证消息的确来自微信服务器
   wxCheckSignature(query: WxCheckSignatureDto): string {
     const TOKEN = this.appConfig.params.weixinMpCheckToken;
+    this.logger.log(TOKEN);
+    this.logger.log('WxCheckSignatureDto', query);
     return this.utilsService.checkWxSha1Equal(query, TOKEN);
   }
 
   // 暂时只处理订阅/取消订阅事件
   async wxEvent(data: WxSubscribeEventDto) {
+    this.logger.log('微信公众号事件推送：', data);
     console.log('微信公众号事件推送：', data);
     const { Ticket, Event, FromUserName, MsgType } = data;
     const event = Event && Event[0].trim();
