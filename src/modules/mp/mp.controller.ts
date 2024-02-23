@@ -57,9 +57,9 @@ export class MpController {
   @Post('checkWxSignature')
   @HttpCode(200)
   async handleWxEvent(@Body() body: { xml?: WxSubscribeEventDto }) {
-    //
     const { xml } = body;
     if (!xml) return '';
+    console.log(xml);
     return this.mpService.wxEvent(xml);
   }
 

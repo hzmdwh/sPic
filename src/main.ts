@@ -32,10 +32,8 @@ async function bootstrap() {
 
   const appConfig =
     app.get<ConfigService>(ConfigService)['internalConfig']['config'];
-  console.log(appConfig);
   const { server } = appConfig;
   const port = parseInt(server.port || 8080, 10);
-  console.log('port:', port);
   await app.listen(port);
 }
 bootstrap();
