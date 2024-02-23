@@ -19,9 +19,6 @@ export class LocalStrategy extends PassportStrategy(Strategy, 'checkScan') {
   }
 
   async validate(req: Record<any, any>, sessionKey: string): Promise<any> {
-    console.log(req.header);
-    console.log(this.appConfig.project.headerLoginToken);
-    console.log(req.header(this.appConfig.project.headerLoginToken));
     return await this.authService.validateScanSuccess(
       sessionKey,
       req.header(this.appConfig.project.headerLoginToken),
